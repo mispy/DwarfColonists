@@ -6,3 +6,6 @@ A mod for [RimWorld](http://rimworldgame.com/) which replaces the default coloni
 
 It's pretty silly, but I learned a bit about how the game is written :)
 
+### Installation
+
+See http://rimworldwiki.com/Installing_mods
