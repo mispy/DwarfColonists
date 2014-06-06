@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ThingDefs>
+
+
+	<ThingDef Name="BaseWeaponNeolithic" Abstract="True">
+		<category>Item</category>
+		<eType>Equipment</eType>
+		<thingClass>Equipment</thingClass>
+		<equipmentType>Primary</equipmentType>
+		<isGun>True</isGun>
+		<pathCost>10</pathCost>
+		<useStandardHealth>True</useStandardHealth>
+		<selectable>True</selectable>
+		<maxHealth>100</maxHealth>
+		<altitudeLayer>Item</altitudeLayer>
+		<alwaysHaulable>True</alwaysHaulable>
+		<tickerType>Never</tickerType>
+		<techLevel>Neolithic</techLevel>
+		<weaponTags>
+			<li>Neolithic</li>
+		</weaponTags>
+		<storeCategories>
+			<li>Weapons</li>
+		</storeCategories>
+		<comps>
+			<li>
+				<compClass>CompForbiddable</compClass>
+			</li>
+		</comps>
+		<verb>
+      <category>Nonnative</category>
+			<verbClass>Verb_Shoot</verbClass>
+			<cooldownTicks>30</cooldownTicks>
+			<label>VerbGun</label>
+			<description>Fire an arrow.</description>
+			<hasStandardCommand>true</hasStandardCommand>
+			<targetParams>
+				<canTargetPawns>true</canTargetPawns>
+				<canTargetBuildings>true</canTargetBuildings>
+				<worldObjectTargetsMustBeAutoAttackable>true</worldObjectTargetsMustBeAutoAttackable>
+			</targetParams>
+			<canMiss>true</canMiss>
+		</verb>
+	</ThingDef>
+
+
+
+	<ThingDef Name="BaseProjectileNeolithic" Abstract="True">
+		<category>Projectile</category>
+		<tickerType>Normal</tickerType>
+		<altitudeLayer>Projectile</altitudeLayer>
+		<thingClass>Bullet</thingClass>
+		<label>Arrow</label>
+		<useStandardHealth>False</useStandardHealth>
+		<neverMultiSelect>True</neverMultiSelect>
+		<baseMaterialType>Transparent</baseMaterialType>
+	</ThingDef>
+
+
+	<!-- ========================== SPECIFICS ============================== -->
+
+  <ThingDef ParentName="BaseProjectileNeolithic">
+		<defName>Dwarf_Bolt</defName>
+		<label>steel bolt</label>
+		<texturePath>Things/Projectile/Dwarf_Bolt</texturePath>
+		<projectile>
+			<impactWorld>True</impactWorld>
+      <damageDef>Bullet</damageDef>
+			<DamageAmountBase>16</DamageAmountBase>
+			<Speed>70</Speed>
+		</projectile>
+	</ThingDef>
+	<ThingDef ParentName="BaseWeaponNeolithic">
+		<defName>Dwarf_Crossbow</defName>
+		<label>☼steel crossbow☼</label>
+		<description>A powerful crossbow, made with dwarven smithing.</description>
+		<texturePath>Things/Item/Equipment/DwarfCrossbow</texturePath>
+		<soundInteract>BowLarge</soundInteract>
+		<tradersCarry>True</tradersCarry>
+		<basePrice>180</basePrice>
+		<verb>
+			<projectileDef>Dwarf_Bolt</projectileDef>
+			<accuracy>10</accuracy>
+			<warmupTicks>182</warmupTicks>
+			<range>37</range>
+			<fireSound>BowGreat</fireSound>
+		</verb>
+	</ThingDef>
+</ThingDefs>
+
+
